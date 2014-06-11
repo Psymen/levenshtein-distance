@@ -8,3 +8,6 @@ More precisely, each operation is weighted, and the minimum of the sum of these 
 For more information on what the Levenshtein Distance is, check out [the wikipedia article](http://en.wikipedia.org/wiki/Levenshtein_distance).
 
 Note: We use a dynamic programming implementation, not recursion.
+
+Install it: `npm install` `bower install`
+Run It: `grunt server`
