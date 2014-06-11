@@ -10,4 +10,5 @@ For more information on what the Levenshtein Distance is, check out [the wikiped
 Note: We use a dynamic programming implementation, not recursion.
 
 Install it: `npm install` `bower install`
-Run It: `grunt server`
+
+Run It: `grunt serve`
