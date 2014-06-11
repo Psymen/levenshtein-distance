@@ -8,7 +8,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -31,25 +31,55 @@
         <h3 class="text-muted">editDistanceProject</h3>
       </div>
 
-      <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
+      <div ng-controller="MainCtrl">
+        <div class="container">
+          <form role="form" ng-submit="computeLevenshteinDistance(stringA, stringB, idWeight, sWeigth)">
+            <div class="form-group">
+              <label for="stringA">String A</label>
+              <input type="text" class="form-control" id="stringA" ng-model="stringA" placeholder="Enter first string" ng-required="true">
+            </div>
+            <div class="form-group">
+              <label for="stringB">String B</label>
+              <input type="text" class="form-control" id="stringB" ng-model="stringB" placeholder="Enter second string" ng-required="true">
+            </div>
 
+            <h3>Parameters</h3>
+            <div class="form-group">
+              <label for="sWeight">Substitution Weight</label>
+              <input type="text" class="form-control" id="sWeigth" ng-model="sWeigth" placeholder="Substition Weight">
+            </div>
+
+            <div class="form-group">
+              <label for="idWeight">Insertion/Deletion Weight</label>
+              <input type="text" class="form-control" id="idWeight" ng-model="idWeight" placeholder="Insertion/Deletion Weight">
+            </div>
+
+            <div class="form-group">
+              <label for="threshold">Threshold</label>
+              <input type="text" class="form-control" id="threshold" ng-model="threshold" placeholder="Toleraance Threshold">
+            </div>
+
+            <br>
+            <button type="submit" class="btn btn-lg btn-success">Run It! <span class="glyphicon glyphicon-ok"></span></button>
+
+
+
+          </form>
+
+          <br>
+          <pre ng-show="getLevenshtein">Levenshtein Distance is: {{getLevenshtein}}</pre>
+          <div class="alert alert-info" ng-show="aboveThreshold">Above Threshold, arbitration must check</div>
+
+        </div>
+
+
+
+      </div>
+      <br>
       <div class="footer">
         <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
       </div>
     </div>
-
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
-
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.min.js"></script>
