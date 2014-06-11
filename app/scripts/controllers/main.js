@@ -65,9 +65,7 @@ angular.module('editDistanceProjectApp')
 
 
 	$scope.getLevenshtein = ($scope.memo !== null) ? ($scope.memo[$scope.stringA.length][$scope.stringB.length]) : false;
-
 	$scope.aboveThreshold = $scope.getLevenshtein > $scope.threshold ? true : false;
-
 	console.log("Levenshtein Distance Computed");
 
 	for(var print = 0; print < $scope.stringB.length; print++){
